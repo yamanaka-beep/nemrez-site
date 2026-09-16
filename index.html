@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>株式会社Nemrez | 山中拓也</title>
+<meta name="description" content="株式会社Nemrez（ネムレズ）公式サイト。代表・山中拓也。ゲーム・アニメ・音楽プロジェクトの企画・原作・脚本。Caligula、MILGRAM、うたごえはミルフィーユ、ネガティヴハッピィ。">
+<link rel="canonical" href="https://nemrez.jp/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="株式会社Nemrez">
+<meta property="og:title" content="株式会社Nemrez | 山中拓也">
+<meta property="og:description" content="ゲーム・アニメ・音楽プロジェクトの企画・原作・脚本。Caligula、MILGRAM、うたごえはミルフィーユ、ネガティヴハッピィ。">
+<meta property="og:url" content="https://nemrez.jp/">
+<meta property="og:image" content="https://nemrez.jp/assets/ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@pug_maniac">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2317191D'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-family='Helvetica Neue,Arial,sans-serif' font-weight='800' font-size='38' fill='%23fff'%3EN%3C/text%3E%3C/svg%3E">
+<style>
+  :root {
+    --bg: #FFFFFF;
+    --bg-warm: #FBFAF8;
+    --text: #17191D;
+    --muted: #8A8F98;
+    --rule: #E5E4E0;
+    --gold: #A6874B;
+    --gold-pale: #E2D5B8;
+    --silver: #B3BAC4;
+    --silver-pale: #E9ECF0;
+    --ghost: #F4F3EF;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Helvetica Neue", "Segoe UI", "Yu Gothic", "YuGothic", "Hiragino Kaku Gothic ProN", sans-serif;
+    line-height: 2;
+    font-feature-settings: "palt";
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  ::selection { background: var(--gold); color: #fff; }
+  .serif { font-family: "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", "Noto Serif JP", serif; }
+
+  .frame { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---- fixed nav ---- */
+  .sitenav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rule);
+    transform: translateY(-100%);
+    transition: transform 0.4s ease;
+  }
+  .sitenav.show { transform: none; }
+  .sitenav-in {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 56px;
+  }
+  .sitenav .nv-logo {
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.22em;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .sitenav .nv-logo b { color: var(--gold); font-weight: 800; }
+  .sitenav ul { display: flex; gap: 2.2em; list-style: none; }
+  .sitenav ul a {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--text);
+    text-decoration: none;
+    padding-bottom: 3px;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .sitenav ul a:hover { color: var(--gold); border-color: var(--gold); }
+  @media (max-width: 760px) {
+    .sitenav ul { gap: 1.3em; }
+    .sitenav ul li.nv-opt { display: none; }
+    .sitenav .nv-logo { letter-spacing: 0.12em; }
+  }
+
+  /* ---- hero ---- */
+  .hero {
+    min-height: min(94svh, 980px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    padding: 5vh 0 7vh;
+  }
+  .hero-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid var(--text);
+    padding-bottom: 1.1em;
+  }
+  .hero-top .lbl { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; }
+  .hero-top .lbl-r { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.3em; color: var(--muted); }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    margin-top: 4vh;
+  }
+  .hero-bottom { display: flex; justify-content: flex-end; align-items: center; gap: 2.4em; margin-top: 5vh; }
+  .hero-sign { text-align: right; }
+  .hero-name-ja { font-size: 1.05rem; font-weight: 700; letter-spacing: 0.42em; }
+  .hero-role { margin-top: 0.5em; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.18em; color: var(--muted); }
+
+  /* ---- youtube facade ---- */
+  .yt {
+    display: block;
+    position: relative;
+    border: 1px solid var(--rule);
+    overflow: hidden;
+    cursor: pointer;
+    aspect-ratio: 16 / 9;
+    background: var(--ghost);
+  }
+  .yt img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+  .yt:hover img { transform: scale(1.025); }
+  .yt iframe { display: block; width: 100%; height: 100%; border: 0; }
+  .yt-play {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+  }
+  .yt-play::before {
+    content: "";
+    width: 68px; height: 68px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    background: rgba(23, 25, 29, 0.35);
+    backdrop-filter: blur(2px);
+    transition: background-color 0.25s, border-color 0.25s;
+  }
+  .yt-play::after {
+    content: "";
+    position: absolute;
+    width: 0; height: 0;
+    border-style: solid;
+    border-width: 9px 0 9px 15px;
+    border-color: transparent transparent transparent #fff;
+    margin-left: 4px;
+  }
+  .yt:hover .yt-play::before { background-color: var(--gold); border-color: var(--gold); }
+  .yt-cap {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    padding: 0.9em 1.2em;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    color: #fff;
+    background: linear-gradient(to top, rgba(23,25,29,0.55), rgba(23,25,29,0));
+    pointer-events: none;
+  }
+  .yt.playing .yt-cap { display: none; }
+
+  /* ---- section base ---- */
+  section { padding: 13vh 0; border-top: 1px solid var(--rule); position: relative; }
+  .sec-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.44em;
+    text-transform: uppercase;
+    margin-bottom: 7vh;
+  }
+  .sec-label::after {
+    content: "";
+    display: inline-block;
+    width: 3.4em; height: 2px;
+    background: var(--gold);
+    vertical-align: middle;
+    margin-left: 1.5em;
+  }
+  .ghost-char {
+    position: absolute;
+    right: -0.04em; top: 6vh;
+    font-size: 21rem;
+    font-weight: 800;
+    color: var(--ghost);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+  }
+  section > .frame { position: relative; z-index: 1; }
+
+  /* ---- featured works ---- */
+  .fw {
+    display: grid;
+    grid-template-columns: 6fr 6fr;
+    gap: 4em;
+    align-items: start;
+    padding: 5em 0;
+  }
+  .fw + .fw { border-top: 1px solid var(--rule); }
+  .fw-num {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    margin-bottom: 1.6em;
+  }
+  .fw-title { font-size: 1.7rem; font-weight: 800; letter-spacing: 0.04em; line-height: 1.5; }
+  .fw-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.7em 1.2em;
+    margin: 1.2em 0 1.8em;
+  }
+  .fw-meta .year, .fw-meta .cat { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.16em; color: var(--muted); white-space: nowrap; }
+  .fw-meta .m-rule { flex: 0 0 2.4em; height: 1px; background: var(--gold); }
+  .fw-meta .cat + .m-rule { display: none; }
+  .fw-meta .credit { flex-basis: 100%; font-size: 0.76rem; font-weight: 500; color: var(--muted); letter-spacing: 0.1em; line-height: 2; }
+  .fw-desc { font-size: 0.9rem; line-height: 2.3; margin-bottom: 2em; }
+  .fw-link {
+    display: inline-block;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--text);
+    padding-bottom: 4px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .fw-link:hover { color: var(--gold); border-color: var(--gold); }
+  .fw-hl { border-top: 2px solid var(--text); margin-top: 3.2em; }
+  .fw-hl .row {
+    display: grid;
+    grid-template-columns: 9em 1fr;
+    gap: 0 1.4em;
+    padding: 1.15em 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: baseline;
+  }
+  .fw-hl .row b { font-size: 1.15rem; font-weight: 800; letter-spacing: 0.02em; line-height: 1.5; }
+  .fw-hl .row span { font-size: 0.8rem; line-height: 1.9; letter-spacing: 0.03em; }
+  .fw-hl .row span small { display: block; font-size: 0.68rem; color: var(--muted); letter-spacing: 0.08em; }
+
+  /* ---- works list（名刺形式） ---- */
+  .works-sub {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.34em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin: 8vh 0 2.5em;
+  }
+  .works-list { list-style: none; }
+  .works-list li {
+    display: flex;
+    align-items: baseline;
+    gap: 1.6em;
+    padding: 1.4em 0;
+    border-bottom: 1px solid var(--rule);
+    transition: padding-left 0.25s ease;
+  }
+  .works-list li:hover { padding-left: 0.7em; }
+  .works-list li:hover .leader { background: var(--gold); }
+  .works-list li:first-child { border-top: 2px solid var(--text); }
+  .works-list .year { flex: 0 0 5.5em; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.16em; color: var(--muted); }
+  .works-list .cat { flex: 0 0 10em; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; color: var(--muted); }
+  .works-list .title { font-size: 1.02rem; font-weight: 700; letter-spacing: 0.06em; white-space: nowrap; }
+  .works-list .title a { color: var(--text); text-decoration: none; transition: color 0.2s; }
+  .works-list .title a:hover { color: var(--gold); }
+  .works-list .leader { flex: 1; height: 1px; background: var(--rule); transition: background 0.25s; }
+  .works-list .credit { font-size: 0.76rem; font-weight: 500; color: var(--muted); letter-spacing: 0.1em; white-space: nowrap; }
+  .works-note { margin-top: 3em; font-size: 0.78rem; color: var(--muted); letter-spacing: 0.08em; }
+
+  /* ---- about ---- */
+  #about { background: var(--bg-warm); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 5em; align-items: start; }
+  .about-name { font-size: 2rem; font-weight: 800; letter-spacing: 0.02em; line-height: 1.3; }
+  .about-name-ja { font-size: 0.95rem; font-weight: 600; letter-spacing: 0.4em; color: var(--muted); margin-top: 0.8em; }
+  .about-body p { font-size: 0.94rem; margin-bottom: 1.6em; line-height: 2.35; }
+  .about-motto { font-size: 0.95rem; letter-spacing: 0.14em; margin-top: 2.2em; color: var(--text); }
+
+  /* ---- company ---- */
+  .co-list { list-style: none; border-top: 2px solid var(--text); max-width: 46em; }
+  .co-list li { display: grid; grid-template-columns: 8em 1fr; gap: 0 2em; padding: 1.3em 0; border-bottom: 1px solid var(--rule); align-items: baseline; }
+  .co-list .k { font-size: 0.74rem; font-weight: 800; letter-spacing: 0.22em; color: var(--muted); }
+  .co-list .v { font-size: 0.94rem; font-weight: 600; letter-spacing: 0.06em; line-height: 2; }
+  .co-list .v ul { list-style: none; }
+  .co-list .v ul li { display: block; padding: 0; border: 0; font-weight: 500; font-size: 0.9rem; }
+  .co-list .v ul li::before { content: "— "; color: var(--gold); }
+
+  /* ---- services ---- */
+  .sv-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 4em;
+    border-top: 2px solid var(--text);
+  }
+  .sv-item {
+    display: flex;
+    align-items: center;
+    gap: 1.3em;
+    padding: 1.5em 0;
+    border-bottom: 1px solid var(--rule);
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+  }
+  .sv-item::before {
+    content: "";
+    flex: 0 0 auto;
+    width: 0.5em; height: 0.5em;
+    background: var(--gold);
+  }
+  .sv-note { margin-top: 3.5em; font-size: 0.9rem; line-height: 2.3; max-width: 36em; }
+  .sv-cta { margin-top: 2.5em; }
+  .sv-clients-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.34em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin: 6vh 0 1.4em;
+  }
+  .sv-clients {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    line-height: 2.4;
+    max-width: 44em;
+  }
+  .sv-clients-note { margin-top: 1.6em; font-size: 0.72rem; color: var(--muted); letter-spacing: 0.08em; }
+
+  /* ---- interviews ---- */
+  .iv-list { list-style: none; }
+  .iv-list li { border-bottom: 1px solid var(--rule); }
+  .iv-list li:first-child { border-top: 2px solid var(--text); }
+  .iv-list a {
+    display: flex;
+    align-items: baseline;
+    gap: 1.6em;
+    padding: 1.5em 0;
+    color: var(--text);
+    text-decoration: none;
+    transition: padding-left 0.25s ease;
+  }
+  .iv-list a:hover { padding-left: 0.7em; }
+  .iv-list a:hover .iv-title { color: var(--gold); }
+  .iv-src { flex: 0 0 11em; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.14em; color: var(--muted); text-transform: uppercase; }
+  .iv-title { font-size: 0.98rem; font-weight: 600; letter-spacing: 0.04em; line-height: 1.9; transition: color 0.2s; }
+
+  /* ---- footer ---- */
+  footer { padding: 10vh 0 7vh; border-top: 1px solid var(--rule); }
+  .contact-list { list-style: none; max-width: 34em; margin-bottom: 5em; }
+  .contact-list li { display: flex; align-items: baseline; gap: 1.4em; padding: 0.9em 0; }
+  .contact-list .k { flex: 0 0 4.5em; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.22em; }
+  .contact-list .leader { flex: 1; height: 1px; background: var(--text); }
+  .contact-list a, .contact-list .v { color: var(--text); text-decoration: none; font-size: 0.92rem; font-weight: 600; letter-spacing: 0.08em; }
+  .contact-list a:hover { color: var(--gold); }
+  footer .copy { font-size: 0.68rem; font-weight: 600; color: var(--muted); letter-spacing: 0.26em; }
+
+  /* ---- reveal ---- */
+  .rv { opacity: 0; transform: translateY(14px); transition: opacity 0.9s ease, transform 0.9s ease; }
+  .rv.on { opacity: 1; transform: none; }
+
+  /* ---- mobile ---- */
+  @media (max-width: 760px) {
+    .hero { min-height: auto; padding-bottom: 8vh; }
+    .hero-grid { grid-template-columns: 1fr; gap: 8px; margin-top: 3vh; }
+    .hero-bottom { align-items: center; gap: 1.6em; margin-top: 6vh; }
+    .hero-name-ja { font-size: 0.95rem; }
+    .hero-role { font-size: 0.62rem; }
+    .yt-play::before { width: 52px; height: 52px; }
+    .fw { grid-template-columns: 1fr; gap: 0; padding: 3.5em 0; }
+    .fw-hl { margin-top: 0.5em; }
+    .works-list li { flex-wrap: wrap; gap: 0.6em 1.2em; }
+    .works-list .year { flex-basis: auto; }
+    .works-list .cat { flex: 0 0 auto; }
+    .works-list .title { white-space: normal; }
+    .works-list .leader { display: none; }
+    .works-list .credit { white-space: normal; }
+    .about-grid { grid-template-columns: 1fr; gap: 2.5em; }
+    .co-list li { grid-template-columns: 1fr; gap: 0.3em 0; }
+    .sv-grid { grid-template-columns: 1fr; }
+    .iv-list a { flex-direction: column; gap: 0.3em; }
+    .contact-list li { flex-wrap: wrap; }
+    .ghost-char { font-size: 10rem; }
+    section { padding: 10vh 0; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="sitenav" id="sitenav" aria-label="サイト内ナビゲーション">
+  <div class="sitenav-in">
+    <a class="nv-logo" href="#top">NEMREZ<b>&nbsp;INC.</b></a>
+    <ul>
+      <li><a href="#works">Works</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#company">Company</a></li>
+      <li class="nv-opt"><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="frame" id="top">
+  <header class="hero">
+    <div class="hero-top rv">
+      <span class="lbl">Nemrez Inc.</span>
+      <span class="lbl-r">Official — Yamanaka Takuya</span>
+    </div>
+    <div class="hero-grid rv">
+      <div class="yt" data-yt="fngwHf3aIGg" role="button" tabindex="0" aria-label="Caligula2 2ndトレーラーを再生">
+        <img src="https://i.ytimg.com/vi/fngwHf3aIGg/maxresdefault.jpg" onerror="this.src='https://i.ytimg.com/vi/fngwHf3aIGg/hqdefault.jpg'" alt="Caligula2 2ndトレーラー">
+        <span class="yt-play" aria-hidden="true"></span>
+        <span class="yt-cap">CALIGULA — 2016</span>
+      </div>
+      <div class="yt" data-yt="RcqXCnAhQlI" role="button" tabindex="0" aria-label="MILGRAM PVを再生">
+        <img src="https://i.ytimg.com/vi/RcqXCnAhQlI/maxresdefault.jpg" onerror="this.src='https://i.ytimg.com/vi/RcqXCnAhQlI/hqdefault.jpg'" alt="MILGRAM -ミルグラム- PV">
+        <span class="yt-play" aria-hidden="true"></span>
+        <span class="yt-cap">MILGRAM — 2020</span>
+      </div>
+      <div class="yt" data-yt="ctV0fro5k7g" role="button" tabindex="0" aria-label="TVアニメ うたごえはミルフィーユ 第3弾PVを再生">
+        <img src="https://i.ytimg.com/vi/ctV0fro5k7g/maxresdefault.jpg" onerror="this.src='https://i.ytimg.com/vi/ctV0fro5k7g/hqdefault.jpg'" alt="TVアニメ うたごえはミルフィーユ 第3弾PV">
+        <span class="yt-play" aria-hidden="true"></span>
+        <span class="yt-cap">うたごえはミルフィーユ — 2022</span>
+      </div>
+      <div class="yt" data-yt="c_6_fO5Sw9o" role="button" tabindex="0" aria-label="ネガティヴハッピィ「ネガティ✕」MVを再生">
+        <img src="https://i.ytimg.com/vi/c_6_fO5Sw9o/maxresdefault.jpg" onerror="this.src='https://i.ytimg.com/vi/c_6_fO5Sw9o/hqdefault.jpg'" alt="ネガティヴハッピィ「ネガティ✕」MV">
+        <span class="yt-play" aria-hidden="true"></span>
+        <span class="yt-cap">ネガティヴハッピィ — 2024</span>
+      </div>
+    </div>
+    <div class="hero-bottom rv">
+      <div class="hero-sign">
+        <h1 class="hero-name-ja">株式会社Nemrez</h1>
+        <p class="hero-role">Takuya Yamanaka — Producer / Game Designer / Screenwriter</p>
+      </div>
+    </div>
+  </header>
+</div>
+
+<section id="works">
+  <div class="frame">
+    <p class="sec-label rv">Works</p>
+
+    <div class="fw rv">
+      <div class="fw-txt">
+        <p class="fw-num">FEATURED — 01</p>
+        <h3 class="fw-title">Caligula<br>シリーズ</h3>
+        <div class="fw-meta"><span class="year">2016—</span><span class="m-rule"></span><span class="cat">ゲーム</span><span class="m-rule"></span><span class="credit">企画／プロデュース／原作・脚本</span></div>
+        <p class="fw-desc">現実に傷つき、理想の仮想世界へ逃げ込んだ人々を描く学園ジュブナイルRPG。現代病理とコンプレックスに焦点を当てたシナリオが支持を集め、2018年のTVアニメ化を経てシリーズ3作へと展開した。</p>
+        <a class="fw-link" href="https://www.cs.furyu.jp/caligula2/" target="_blank" rel="noopener">Official Site</a>
+      </div>
+      <div class="fw-hl">
+        <div class="row"><b>45万本</b><span>シリーズ全世界累計販売本数<small>フリュー発表・2026年6月</small></span></div>
+        <div class="row"><b>週間1位</b><span>『Caligula Overdose』発売週の国内ゲームソフト販売ランキング<small>2018年5月</small></span></div>
+        <div class="row"><b>TVアニメ化</b><span>2018年放送。『Caligula』『Overdose』『Caligula2』のシリーズ3作へ展開</span></div>
+      </div>
+    </div>
+
+    <div class="fw rv">
+      <div class="fw-txt">
+        <p class="fw-num">FEATURED — 02</p>
+        <h3 class="fw-title">MILGRAM<br>-ミルグラム-</h3>
+        <div class="fw-meta"><span class="year">2020—</span><span class="m-rule"></span><span class="cat">YouTube</span><span class="m-rule"></span><span class="credit">企画／プロデュース／原作・脚本</span></div>
+        <p class="fw-desc">DECO*27との共同プロジェクト。囚人たちの罪を歌と映像で開示し、「赦す」か「赦さない」かを視聴者の投票に委ねる、視聴者参加型コンテンツ。国内外に強いファンダムを持ち、楽曲・ボイスドラマ・書籍・舞台へと展開している。</p>
+        <a class="fw-link" href="https://milgram.jp/" target="_blank" rel="noopener">Official Site</a>
+      </div>
+      <div class="fw-hl">
+        <div class="row"><b>70万人</b><span>YouTube登録者<small>2026年9月時点</small></span></div>
+        <div class="row"><b>1.3億回</b><span>公式MV29本の合計再生回数。100万回超のMVが27本<small>2026年9月時点</small></span></div>
+        <div class="row"><b>1,460万回</b><span>最多再生MV「粛清マーチ」（第二審）</span></div>
+      </div>
+    </div>
+
+    <div class="fw rv">
+      <div class="fw-txt">
+        <p class="fw-num">FEATURED — 03</p>
+        <h3 class="fw-title">うたごえは<br>ミルフィーユ</h3>
+        <div class="fw-meta"><span class="year">2022—</span><span class="m-rule"></span><span class="cat">音楽プロジェクト → TVアニメ</span><span class="m-rule"></span><span class="credit">企画／原作・シリーズ構成・脚本</span></div>
+        <p class="fw-desc">「アカペラ×女子高生×コンプレックス」をテーマにした音楽プロジェクト。自分の声が嫌いな少女たちが、それでも声を重ねていく。企画・原作からシリーズ構成・脚本までを一貫して手がけ、2025年にTVアニメ化を果たした。</p>
+        <a class="fw-link" href="https://utamille.com/" target="_blank" rel="noopener">Official Site</a>
+      </div>
+      <div class="fw-hl">
+        <div class="row"><b>TVアニメ化</b><span>2025年7月〜9月放送。プロジェクト始動（2022年）から3年で実現</span></div>
+        <div class="row"><b>ハモネプ全国大会</b><span>フジテレビ系『全国ハモネプ大リーグ』出場。エントリー406組中12組の全国大会枠<small>2024年3月</small></span></div>
+        <div class="row"><b>アニサマ出演</b><span>Animelo Summer Live 2024・2025<small>さいたまスーパーアリーナ</small></span></div>
+      </div>
+    </div>
+
+    <div class="fw rv">
+      <div class="fw-txt">
+        <p class="fw-num">FEATURED — 04</p>
+        <h3 class="fw-title">ネガティヴ<br>ハッピィ</h3>
+        <div class="fw-meta"><span class="year">2024—</span><span class="m-rule"></span><span class="cat">WEBアニメ／音楽</span><span class="m-rule"></span><span class="credit">企画／監督・脚本</span></div>
+        <p class="fw-desc">社会不適合者たちが、顔の可愛さだけを武器にアイドルグループを結成。【表】の完璧なMVと【裏】の残念なアニメ、二面性で展開するYouTube発のアイドルプロジェクト。</p>
+        <a class="fw-link" href="https://youtube.com/@nega_hapi" target="_blank" rel="noopener">YouTube Channel</a>
+      </div>
+      <div class="fw-hl">
+        <div class="row"><b>25万人</b><span>YouTube登録者<small>2026年9月時点</small></span></div>
+        <div class="row"><b>100話</b><span>【裏】アニメ本編が100話を突破</span></div>
+        <div class="row"><b>プライズ化</b><span>ナムコ限定景品としてマスコットキーホルダー全6種を全国展開<small>2026年7月</small></span></div>
+      </div>
+    </div>
+
+    <p class="works-sub rv">Original — 企画・原作</p>
+    <ul class="works-list">
+      <li class="rv"><span class="year">2016</span><span class="cat">ゲーム</span><span class="title"><a href="https://www.cs.furyu.jp/caligula2/" target="_blank" rel="noopener">Caligula -カリギュラ-</a></span><span class="leader"></span><span class="credit">企画／原作／ディレクター／シナリオ原案</span></li>
+      <li class="rv"><span class="year">2018</span><span class="cat">ゲーム</span><span class="title">Caligula Overdose</span><span class="leader"></span><span class="credit">企画／原作／プロデューサー／ディレクター</span></li>
+      <li class="rv"><span class="year">2018</span><span class="cat">TVアニメ</span><span class="title">Caligula -カリギュラ-</span><span class="leader"></span><span class="credit">原作</span></li>
+      <li class="rv"><span class="year">2020—</span><span class="cat">YouTube</span><span class="title"><a href="https://milgram.jp/" target="_blank" rel="noopener">MILGRAM -ミルグラム-</a></span><span class="leader"></span><span class="credit">企画／原作／プロデューサー／シナリオ</span></li>
+      <li class="rv"><span class="year">2020—</span><span class="cat">音楽／コミック</span><span class="title"><a href="https://boisterous6.jp/" target="_blank" rel="noopener">ボイステラス6</a></span><span class="leader"></span><span class="credit">企画／原作／シナリオ</span></li>
+      <li class="rv"><span class="year">2021</span><span class="cat">ゲーム</span><span class="title"><a href="https://www.cs.furyu.jp/caligula2/" target="_blank" rel="noopener">Caligula2</a></span><span class="leader"></span><span class="credit">企画／原作／プロデューサー／ディレクター／シナリオ</span></li>
+      <li class="rv"><span class="year">2022—</span><span class="cat">音楽 → TVアニメ</span><span class="title"><a href="https://utamille.com/" target="_blank" rel="noopener">うたごえはミルフィーユ</a></span><span class="leader"></span><span class="credit">企画／原作／シリーズ構成・脚本</span></li>
+      <li class="rv"><span class="year">2024—</span><span class="cat">WEBアニメ</span><span class="title"><a href="https://youtube.com/@nega_hapi" target="_blank" rel="noopener">ネガティヴハッピィ</a></span><span class="leader"></span><span class="credit">企画／監督／脚本</span></li>
+      <li class="rv"><span class="year">2026予定</span><span class="cat">ゲーム</span><span class="title"><a href="https://shueisha-games.com/games/unme/" target="_blank" rel="noopener">UN:Me</a></span><span class="leader"></span><span class="credit">企画／シナリオ</span></li>
+    </ul>
+
+    <p class="works-sub rv">Screenwriting — 脚本参加</p>
+    <ul class="works-list">
+      <li class="rv"><span class="year">2019</span><span class="cat">アニメ</span><span class="title"><a href="https://www.sd-gundam-world.net/soketsuden/jp/" target="_blank" rel="noopener">SDガンダムワールド 三国創傑伝</a></span><span class="leader"></span><span class="credit">脚本</span></li>
+      <li class="rv"><span class="year">2019</span><span class="cat">Webコミック</span><span class="title">SDガンダムワールド 三国創傑伝 蒼翔記</span><span class="leader"></span><span class="credit">構成／脚本</span></li>
+      <li class="rv"><span class="year">2020</span><span class="cat">ゲーム</span><span class="title"><a href="https://idolish7.com/ldm/" target="_blank" rel="noopener">ダンスマカブル</a></span><span class="leader"></span><span class="credit">原案／シナリオ（アイドリッシュセブン内イベント）</span></li>
+      <li class="rv"><span class="year">2021</span><span class="cat">TVアニメ</span><span class="title"><a href="https://www.sd-gundam-world.net/heroes/" target="_blank" rel="noopener">SDガンダムワールドヒーローズ</a></span><span class="leader"></span><span class="credit">脚本</span></li>
+      <li class="rv"><span class="year">2021</span><span class="cat">ゲーム</span><span class="title"><a href="https://snx.bn-ent.net/" target="_blank" rel="noopener">SCARLET NEXUS</a></span><span class="leader"></span><span class="credit">シナリオ協力</span></li>
+      <li class="rv"><span class="year">2022—</span><span class="cat">ドラマCD</span><span class="title">MISSION：GO5 ボイスドラマ Vol.03／Vol.04</span><span class="leader"></span><span class="credit">脚本</span></li>
+      <li class="rv"><span class="year">2023</span><span class="cat">YouTube</span><span class="title">ゴー・ラウンド・ゲーム</span><span class="leader"></span><span class="credit">シナリオ</span></li>
+      <li class="rv"><span class="year">2023—</span><span class="cat">YouTube</span><span class="title"><a href="https://hoshikuzu-showtime.com/" target="_blank" rel="noopener">星芥ショータイム／星芥ユニゾン</a></span><span class="leader"></span><span class="credit">シナリオ</span></li>
+      <li class="rv"><span class="year">2025</span><span class="cat">YouTube</span><span class="title"><a href="https://vsambivalenz.com/" target="_blank" rel="noopener">VS AMBIVALENZ（2ndシーズン）</a></span><span class="leader"></span><span class="credit">脚本</span></li>
+      <li class="rv"><span class="year">2026</span><span class="cat">朗読劇</span><span class="title"><a href="https://itsukinatsume.com/seijinshiki/" target="_blank" rel="noopener">棗いつき×山中拓也 音楽朗読劇　成人式</a></span><span class="leader"></span><span class="credit">脚本</span></li>
+    </ul>
+    <p class="works-note rv">※発表済み案件のみ掲載。映像は各作品公式チャンネルのYouTube埋め込み。数値は各社発表および2026年9月時点の公開データに基づく。</p>
+  </div>
+</section>
+
+<section id="about">
+  <span class="ghost-char" aria-hidden="true">書</span>
+  <div class="frame">
+    <p class="sec-label rv">About</p>
+    <div class="about-grid">
+      <div class="rv">
+        <p class="about-name">Yamanaka<br>Takuya</p>
+        <p class="about-name-ja">山中拓也</p>
+        <p class="about-motto serif">人間を作るのが好きです。</p>
+      </div>
+      <div class="about-body rv">
+        <p>ゲームクリエイター・脚本家。1987年生まれ。大学で心理学を専攻し、ユークス、フリューを経て2018年に独立。株式会社Nemrez代表取締役。『Caligula』シリーズ、『MILGRAM』（DECO*27と共同）、『うたごえはミルフィーユ』、『ネガティヴハッピィ』など、ゲーム・アニメ・音楽プロジェクトを横断して企画・原作・脚本を手がける。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="company">
+  <div class="frame">
+    <p class="sec-label rv">Company — 会社概要</p>
+    <ul class="co-list rv">
+      <li><span class="k">社名</span><span class="v">株式会社Nemrez（ネムレズ）</span></li>
+      <li><span class="k">代表</span><span class="v">代表取締役　山中拓也</span></li>
+      <li><span class="k">設立</span><span class="v">2021年4月2日</span></li>
+      <li><span class="k">資本金</span><span class="v">300万円</span></li>
+      <li><span class="k">所在地</span><span class="v">〒150-0001 東京都渋谷区神宮前6-23-4 桑野ビル2階</span></li>
+      <li><span class="k">事業内容</span><span class="v"><ul>
+        <li>ゲーム・アニメーションの企画、制作、版権事業</li>
+        <li>ゲーム・アニメ・映像・書籍の脚本、シナリオ等の執筆</li>
+        <li>キャラクター・デジタルコンテンツの企画、運営、ライセンス管理</li>
+        <li>キャラクター商品の企画、製造、販売</li>
+        <li>インターネットによる番組配信、広告業務</li>
+        <li>各種イベントの企画、制作</li>
+      </ul></span></li>
+      <li><span class="k">連絡先</span><span class="v"><a href="mailto:yamanaka@pugmaniac.net" style="color:inherit;text-decoration:none;">yamanaka@pugmaniac.net</a></span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="services">
+  <div class="frame">
+    <p class="sec-label rv">Services — お仕事のご依頼</p>
+    <div class="sv-grid rv">
+      <div class="sv-item">企画・プロデュース</div>
+      <div class="sv-item">シナリオ・脚本</div>
+      <div class="sv-item">キャスティング・音響監督</div>
+      <div class="sv-item">企画協力・コンサルタント</div>
+      <div class="sv-item">ライティング</div>
+      <div class="sv-item">出演・登壇</div>
+    </div>
+    <p class="sv-note rv">企画の立ち上げから脚本執筆、音響演出まで、コンテンツ制作の各工程を横断してお受けしています。単発のご相談もお気軽にどうぞ。</p>
+    <p class="sv-cta rv"><a class="fw-link" href="mailto:yamanaka@pugmaniac.net">Contact — yamanaka@pugmaniac.net</a></p>
+
+    <p class="sv-clients-label rv">Clients — 主なお取引先</p>
+    <p class="sv-clients rv">フリュー株式会社／株式会社バンダイナムコエンターテインメント／株式会社バンダイナムコオンライン／株式会社サンライズ（現・バンダイナムコフィルムワークス）／株式会社集英社ゲームズ／株式会社ポニーキャニオン／ユニバーサル ミュージック合同会社／株式会社ヒストリア／株式会社一二三</p>
+    <p class="sv-clients-note rv">（順不同・敬称略。公開作品のクレジットに基づく）</p>
+  </div>
+</section>
+
+<section id="interviews">
+  <div class="frame">
+    <p class="sec-label rv">Interviews / Media</p>
+    <ul class="iv-list">
+      <li class="rv"><a href="https://news.yahoo.co.jp/articles/edee87fdd954fd36505fe92936ba030bca3caf27" target="_blank" rel="noopener"><span class="iv-src">リアルサウンド</span><span class="iv-title">『うたミル』原作・山中拓也に聞く、ゲームシナリオとアニメ脚本の違い</span></a></li>
+      <li class="rv"><a href="https://www.animatetimes.com/news/details.php?id=1753844758" target="_blank" rel="noopener"><span class="iv-src">アニメイトタイムズ</span><span class="iv-title">『うたミル』アニメ化の裏側とキャラクターたちの葛藤</span></a></li>
+      <li class="rv"><a href="https://ascii.jp/elem/000/004/137/4137068/" target="_blank" rel="noopener"><span class="iv-src">ASCII.jp</span><span class="iv-title">ゲームプロデューサー・山中拓也氏に聞くゲームのお仕事とは？</span></a></li>
+      <li class="rv"><a href="https://www.docswell.com/s/gamemakers/KLLW86-GameMakersScramble2024_ArchivesA1" target="_blank" rel="noopener"><span class="iv-src">Game Makers 2024</span><span class="iv-title">講演「心に残る物語のつくりかた」</span></a></li>
+    </ul>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="frame">
+    <ul class="contact-list rv">
+      <li><span class="k">MAIL</span><span class="leader"></span><a href="mailto:yamanaka@pugmaniac.net">yamanaka@pugmaniac.net</a></li>
+      <li><span class="k">SNS</span><span class="leader"></span><a href="https://x.com/pug_maniac" target="_blank" rel="noopener">@pug_maniac</a></li>
+      <li><span class="k">NOTE</span><span class="leader"></span><a href="https://note.com/pug_maniac" target="_blank" rel="noopener">note.com/pug_maniac</a></li>
+      <li><span class="k">POST</span><span class="leader"></span><span class="v">〒150-0001 東京都渋谷区神宮前6-23-4 桑野ビル2階</span></li>
+    </ul>
+    <p class="copy">© NEMREZ INC.</p>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) { e.target.classList.add("on"); io.unobserve(e.target); }
+    }
+  }, { threshold: 0.12 });
+  document.querySelectorAll(".rv").forEach((el, i) => {
+    el.style.transitionDelay = (i % 4) * 0.08 + "s";
+    io.observe(el);
+  });
+
+  document.querySelectorAll(".yt").forEach((el) => {
+    const play = () => {
+      const id = el.dataset.yt;
+      el.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id +
+        '?autoplay=1&rel=0" title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+      el.classList.add("playing");
+      el.removeAttribute("role");
+      el.removeAttribute("tabindex");
+    };
+    el.addEventListener("click", play, { once: true });
+    el.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); play(); }
+    }, { once: true });
+  });
+
+  const nav = document.getElementById("sitenav");
+  const hero = document.querySelector(".hero");
+  const navObserver = new IntersectionObserver((entries) => {
+    nav.classList.toggle("show", !entries[0].isIntersecting);
+  }, { threshold: 0.05 });
+  navObserver.observe(hero);
+</script>
+
+</body>
+</html>
